@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = "mysql://root:password@db:3306/shopper_db"
+}
+
+model measures {
+    measure_uuid     String                @id @default(uuid()) @db.Char(36)
+    measure_datetime DateTime              @db.DateTime(0)
+    measure_type     measures_measure_type
+    measure_value    Int
+    costumer_code    String                @db.VarChar(50)
+    has_confirmed    Boolean               @default(false)
+    image_url        String                @db.VarChar(200)
+}
+
+enum measures_measure_type {
+    WATER
+    GAS
+}
