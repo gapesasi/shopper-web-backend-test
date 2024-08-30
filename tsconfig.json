@@ -2,17 +2,8 @@
 "extends": "ts-node/node16/tsconfig.json",
 
   "ts-node": {
-    // "esm": true,
     "experimentalSpecifierResolution": "node",
-    // It is faster to skip typechecking.
-    // Remove if you want ts-node to do typechecking.
-    // "transpileOnly": true,
     "files": true,
-    "compilerOptions": {
-      // compilerOptions specified here will override those declared below,
-      // but *only* in ts-node.  Useful if you want ts-node and tsc to use
-      // different options with a single tsconfig.json.
-    }
   },
 
   "compilerOptions": {
@@ -25,7 +16,8 @@
     "outDir": "./dist/src",                           
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,         
-    "strict": true,                                  
+    "strict": true,          
+    "resolveJsonModule": true                        
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"],
